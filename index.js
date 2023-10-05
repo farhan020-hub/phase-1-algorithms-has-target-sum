@@ -1,20 +1,25 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // Create an empty set to store seen numbers
   const targetSum = new Set();
 
+  // Iterate through the elements of the input array
   for (let i = 0; i < array.length; i++) {
+    // Calculate the complement needed to reach the target
     const complement = target - array[i];
 
+    // If the complement exists in the targetSum set, we found a pair
     if (targetSum.has(complement)) {
       return true;
     }
 
+    // Otherwise, add the current element to the targetSum set
     targetSum.add(array[i]);
   }
 
+  // If no such pair is found during the iteration, return false
   return false;
-
 }
+
 
 /* 
   Write the Big O time complexity of your function here
